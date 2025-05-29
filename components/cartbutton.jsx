@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCart } from "../app/context/context";
-import { ShoppingCart } from "lucide-react"; // use Lucide icon
+import { ShoppingCart } from "lucide-react";
 
 export default function CartButton() {
   const { cartItems } = useCart();

@@ -1,13 +1,21 @@
 import { Search } from "lucide-react";
 import CartButton from "./cartbutton";
+import Image from "next/image";
+
 export default function Navbar({ onSearch }) {
   return (
-    <nav className="bg-blue-800 text-white px-6 py-3 flex items-center justify-between">
+    <nav className="bg-blue-800 text-white px-4 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       {/* Logo */}
-      <div className="text-lg font-bold">Logo</div>
+      <div className="relative w-[120px] h-[40px] mx-auto sm:mx-0">
+        <Image
+          src="/logo-image.png"
+          alt="Logo"
+          fill
+          className="object-contain"
+        />
+      </div>
 
-      {/* Search Bar */}
-      <div className="flex items-center bg-blue-700 rounded-md px-3 py-2 w-full max-w-md border border-blue-500 focus-within:border-blue-400 transition-colors">
+      <div className="flex items-center bg-blue-700 rounded-md px-3 py-2 w-full max-w-md mx-auto sm:mx-0 border border-blue-500 focus-within:border-blue-400 transition-colors">
         <Search className="w-4 h-4 mr-2 text-white" />
         <input
           type="text"
@@ -17,8 +25,9 @@ export default function Navbar({ onSearch }) {
         />
       </div>
 
-      {/* Cart Button */}
-      <CartButton />
+      <div className="flex justify-center sm:justify-end ">
+        <CartButton />
+      </div>
     </nav>
   );
 }

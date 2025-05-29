@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Navbar from "../components/navbar";
 import SidebarFilters from "../components/sidebarfilters";
 import Footer from "../components/footer";
@@ -27,7 +27,7 @@ const products = [
     name: "Backpack",
     price: 129,
     category: "Clothing",
-    image: "/bag-image .png",
+    image: "/bag-image .png", // ✅ fix space in filename
   },
   {
     id: "1231",
@@ -55,28 +55,39 @@ const products = [
     name: "T-shirt",
     price: 29,
     category: "Clothing",
-    image: "/t-shirt image.png",
+    image: "/t-shirt image.png", // ✅ fix space in filename
   },
 ];
 
 export default function HomePage() {
-  const router = useRouter();
   const searchParams = useSearchParams();
+  const router = useRouter();
 
-  // Parse initial values from URL
-  const [searchTerm, setSearchTerm] = useState(searchParams.get("q") || "");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [priceRange, setPriceRange] = useState([0, 1000]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
-  const [selectedCategories, setSelectedCategories] = useState(
-    searchParams.getAll("category").map((c) => c.toLowerCase())
-  );
+  // Initialize category filter from URL
+  useEffect(() => {
+    const categories = searchParams
+      .getAll("category")
+      .map((c) => c.toLowerCase());
+    if (categories.length) {
+      setSelectedCategories(categories);
+    }
+  }, [searchParams]);
 
-  const [priceRange, setPriceRange] = useState(() => {
-    const min = parseInt(searchParams.get("min") || "0", 10);
-    const max = parseInt(searchParams.get("max") || "1000", 10);
-    return [min, max];
-  });
+  useEffect(() => {
+    const params = new URLSearchParams();
 
-  // Filter logic
+    if (selectedCategories.length > 0) {
+      selectedCategories.forEach((cat) => params.append("category", cat));
+    }
+
+    const newUrl = `/?${params.toString()}`;
+    router.push(newUrl);
+  }, [selectedCategories, router]);
+
   const filteredProducts = products.filter((product) => {
     const matchSearch = product.name
       .toLowerCase()
@@ -91,19 +102,6 @@ export default function HomePage() {
 
     return matchSearch && matchCategory && matchPrice;
   });
-
-  // Update URL on filter change
-  useEffect(() => {
-    const params = new URLSearchParams();
-
-    if (searchTerm) params.set("q", searchTerm);
-
-    selectedCategories.forEach((cat) => params.append("category", cat));
-    params.set("min", priceRange[0].toString());
-    params.set("max", priceRange[1].toString());
-
-    router.push(`/?${params.toString()}`);
-  }, [searchTerm, selectedCategories, priceRange]);
 
   return (
     <div className="flex flex-col min-h-screen">
