@@ -1,4 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
+
+
+🚀 Features
+
+    Dynamic Percentile Graph: Visualizes percentile scores dynamically, providing an interactive experience.
+
+    Responsive Design: Fully responsive layout ensuring optimal viewing across devices.
+
+    User-Friendly Popup Form: Allows users to input and update scores with real-time validation.
+
+🛠️ Technologies Used
+
+    Next.js: React framework for building the application.
+
+    Tailwind CSS: Utility-first CSS framework for styling.
+
+    D3.js: JavaScript library for creating dynamic, interactive data visualizations.
+
+    Heroicons: High-quality SVG icons for UI components.
 
 ## Getting Started
 
@@ -14,7 +33,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open https://frontend-whatbytes-n22d.vercel.app/ with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
@@ -28,9 +47,4 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ 
