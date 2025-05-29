@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useState } from "react";
 import Navbar from "../components/navbar";
 import SidebarFilters from "../components/sidebarfilters";
 import Footer from "../components/footer";
 import ProductCard from "../components/productcard";
+
 const products = [
   {
     id: "1232",
@@ -83,33 +83,9 @@ const products = [
 ];
 
 export default function HomePage() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-
   const [searchTerm, setSearchTerm] = useState("");
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-
-  // Initialize category filter from URL
-  useEffect(() => {
-    const categories = searchParams
-      .getAll("category")
-      .map((c) => c.toLowerCase());
-    if (categories.length) {
-      setSelectedCategories(categories);
-    }
-  }, [searchParams]);
-
-  useEffect(() => {
-    const params = new URLSearchParams();
-
-    if (selectedCategories.length > 0) {
-      selectedCategories.forEach((cat) => params.append("category", cat));
-    }
-
-    const newUrl = `/?${params.toString()}`;
-    router.push(newUrl);
-  }, [selectedCategories, router]);
 
   const filteredProducts = products.filter((product) => {
     const matchSearch = product.name
