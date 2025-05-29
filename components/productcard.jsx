@@ -1,7 +1,7 @@
 // components/ProductCard.jsx
 import Image from "next/image";
 import Link from "next/link";
-import { Star } from "lucide-react";
+
 import { useCart } from "../app/context/context";
 
 export default function ProductCard({ product }) {
@@ -12,12 +12,15 @@ export default function ProductCard({ product }) {
       className="block bg-white rounded-lg shadow p-4 hover:shadow-md transition-shadow"
     >
       {/* Image */}
-      <div className="relative w-full h-40 bg-gray-100 rounded mb-3 overflow-hidden">
+      <div className="relative w-full h-[200px] bg-white rounded mb-3 overflow-hidden">
         <Image
-          src={product.image || "/images/placeholder.png"}
+          src={product.image}
           alt={product.name}
           layout="fill"
-          objectFit="cover"
+          objectFit="contain"
+          sizes="(max-width: 768px) 90vw, 
+          (max-width: 1200px) 50vw, 
+          33vw"
         />
       </div>
 
