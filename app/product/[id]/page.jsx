@@ -1,8 +1,17 @@
+"use client";
+
 import { getProductById } from "../../../lib/product";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/cart/cart";
 
 export default function ProductDetailPage({ params }) {
+  const dispatch = useDispatch();
+
   const product = getProductById(params.id);
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
 
   if (!product) {
     return <div className="p-6 text-red-600">Product not found.</div>;
@@ -31,7 +40,10 @@ export default function ProductDetailPage({ params }) {
         <p className="text-sm text-gray-500 mb-4">
           Category: {product.category}
         </p>
-        <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+        <button
+          onClick={handleAddToCart}
+          className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 cursor-pointer "
+        >
           Add to Cart
         </button>
       </div>

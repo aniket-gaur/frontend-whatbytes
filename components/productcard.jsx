@@ -32,7 +32,9 @@ export default function ProductCard({ product }) {
         </div>
       )}
 
-      <p className="text-sm text-gray-500">Click to view</p>
+      <button className="bg-blue-900 text-center text-white px-2.5 py-1.5 rounded hover:bg-blue-800 transition-colors w-full cursor-pointer">
+        Add to Cart
+      </button>
     </Link>
   );
 }
