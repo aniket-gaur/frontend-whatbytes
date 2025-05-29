@@ -1,4 +1,5 @@
-import { Search, ShoppingCart } from "lucide-react";
+import { Search } from "lucide-react";
+import CartButton from "./cartbutton";
 export default function Navbar({ onSearch }) {
   return (
     <nav className="bg-blue-800 text-white px-6 py-3 flex items-center justify-between">
@@ -17,10 +18,7 @@ export default function Navbar({ onSearch }) {
       </div>
 
       {/* Cart Button */}
-      <button className="bg-blue-900 hover:bg-blue-800 transition-colors px-4 py-2 rounded-md flex items-center gap-2 cursor-pointer ">
-        <ShoppingCart className="w-4 h-4" />
-        <span>Cart</span>
-      </button>
+      <CartButton />
     </nav>
   );
 }

@@ -2,16 +2,12 @@
 
 import { getProductById } from "../../../lib/product";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../features/cart/cart";
+import { useCart } from "../../context/context";
 
 export default function ProductDetailPage({ params }) {
-  const dispatch = useDispatch();
+  const { addToCart } = useCart();
 
   const product = getProductById(params.id);
-  const handleAddToCart = () => {
-    dispatch(addToCart(product));
-  };
 
   if (!product) {
     return <div className="p-6 text-red-600">Product not found.</div>;
@@ -19,7 +15,6 @@ export default function ProductDetailPage({ params }) {
 
   return (
     <div className="p-6 max-w-4xl mx-auto flex flex-col lg:flex-row gap-8">
-      {/* Image Section */}
       <div className="relative w-full h-96 lg:w-1/2 bg-gray-100 rounded">
         <Image
           src={product.image}
@@ -41,7 +36,7 @@ export default function ProductDetailPage({ params }) {
           Category: {product.category}
         </p>
         <button
-          onClick={handleAddToCart}
+          onClick={() => addToCart(product)}
           className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 cursor-pointer "
         >
           Add to Cart
