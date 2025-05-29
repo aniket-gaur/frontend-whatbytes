@@ -3,21 +3,21 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 🚀 Features
 
-    Dynamic Percentile Graph: Visualizes percentile scores dynamically, providing an interactive experience.
+Dynamic Percentile Graph: Visualizes percentile scores dynamically, providing an interactive experience.
 
-    Responsive Design: Fully responsive layout ensuring optimal viewing across devices.
+Responsive Design: Fully responsive layout ensuring optimal viewing across devices.
 
-    User-Friendly Popup Form: Allows users to input and update scores with real-time validation.
+User-Friendly Popup Form: Allows users to input and update scores with real-time validation.
 
 🛠️ Technologies Used
 
-    Next.js: React framework for building the application.
+Next.js: React framework for building the application.
 
-    Tailwind CSS: Utility-first CSS framework for styling.
+Tailwind CSS: Utility-first CSS framework for styling.
 
-    D3.js: JavaScript library for creating dynamic, interactive data visualizations.
+ D3.js: JavaScript library for creating dynamic, interactive data visualizations.
 
-    Heroicons: High-quality SVG icons for UI components.
+Heroicons: High-quality SVG icons for UI components.
 
 ## Getting Started
 
