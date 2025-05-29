@@ -9,7 +9,7 @@ export default function CartButton() {
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <Link href="/cart" className="relative inline-block">
+    <Link href="/cart" className="relative inline-block hover:cursor-pointer">
       <button className="flex items-center space-x-2 px-4 py-2 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition">
         <ShoppingCart size={20} className="text-white" />
         <span className="font-semibold">Cart</span>
